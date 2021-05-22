@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import entidades.Livro;
+import req01.casos.LivroInvalido;
 import req01.casos.LivroJaCadastradoException;
 import req01.casos.REQ01;
 
@@ -28,6 +29,14 @@ public class REQ01Test {
 		req01.cadastrarLivro(livro1);
 		req01.cadastrarLivro(livro2);
 
+	}
+
+	@Test(expected = LivroInvalido.class)
+	public void testCadastrarLivroComIsbnEmBranco() {
+		REQ01 req01 = new REQ01();
+
+		Livro livro = new Livro("", "Machado de Assis", "Brás Cubas");
+		Assert.assertEquals(livro, req01.cadastrarLivro(livro));
 	}
 
 }
