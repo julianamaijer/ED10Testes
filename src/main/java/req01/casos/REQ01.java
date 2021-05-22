@@ -10,8 +10,8 @@ public class REQ01 {
 	private List<Livro> listaLivros = new ArrayList();
 	
 	public Livro cadastrarLivro(Livro livro) {
-		if(livro.getIsbn().isEmpty()) {
-			throw new LivroInvalido("Livro com isbn em branco.");
+		if(livro.getIsbn().isEmpty() || livro.getTitulo().isEmpty()) {
+			throw new LivroInvalido("Livro inválido.");
 		}
 
 		for(Livro l : listaLivros) {
