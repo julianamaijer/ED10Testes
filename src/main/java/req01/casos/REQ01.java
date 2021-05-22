@@ -10,7 +10,10 @@ public class REQ01 {
 	private List<Livro> listaLivros = new ArrayList();
 	
 	public Livro cadastrarLivro(Livro livro) {
-		return null;
+
+		listaLivros.add(livro);
+
+		return livro;
 		
 	}
 	
