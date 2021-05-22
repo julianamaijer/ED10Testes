@@ -39,4 +39,12 @@ public class REQ01Test {
 		Assert.assertEquals(livro, req01.cadastrarLivro(livro));
 	}
 
+	@Test(expected = LivroInvalido.class)
+	public void testCadastrarLivroComTituloEmBranco() {
+		REQ01 req01 = new REQ01();
+
+		Livro livro = new Livro("1111", "", "Brás Cubas");
+		Assert.assertEquals(livro, req01.cadastrarLivro(livro));
+	}
+
 }
